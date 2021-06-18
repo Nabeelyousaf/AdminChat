@@ -1,0 +1,145 @@
+// class MessageStream extends StatelessWidget {
+//   DocumentSnapshot details;
+//   int index;
+
+//   final fireStore;
+//   MessageStream({this.fireStore, this.details, this.index});
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<QuerySnapshot>(
+//       stream: fireStore
+//           .collection('User')
+//           .doc(details)
+//           .collection('messages')
+//           .snapshots(),
+//       builder: (context, snapshot) {
+//         if (!snapshot.hasData) {
+//           return Center(
+//             child: CircularProgressIndicator(),
+//           );
+//         } else if (snapshot.hasData) {
+//           final messages = snapshot.data.docs.reversed;
+//           List<MessageBubble> messagesWidgets = [];
+//           DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
+//           for (var message in messages) {
+//             final messageText = documentSnapshot.get('sender');
+//             final messageSender = documentSnapshot.get('text');
+//             final currentUser = loggedInUser.email;
+//             if (currentUser == messageSender) {
+//               //the message from the loggrd in user
+//             }
+
+//             final messageBubble = MessageBubble(
+//               text: messageText,
+//               sender: messageSender,
+//               isMe: true,
+//             );
+//             messagesWidgets.add(messageBubble);
+//           }
+//           return Expanded(
+//             child: ListView(
+//               reverse: true,
+//               padding: EdgeInsets.symmetric(
+//                 horizontal: 10,
+//                 vertical: 20,
+//               ),
+//               children: messagesWidgets,
+//             ),
+//           );
+//         }
+//       },
+//     );
+//   }
+// }
+
+// body: StreamBuilder<QuerySnapshot>(
+//   // stream:
+//   stream: _firestore
+//       .collection('User')
+//       .doc(widget.details.id)
+//       .collection('messages')
+//       .snapshots(),
+//   builder: (context, snapshot) {
+//     if (!snapshot.hasData) {
+//       return Center(
+//         child: CircularProgressIndicator(),
+//       );
+//     } else {
+
+// return ListView.builder(
+//   itemCount: snapshot.data.docs.length,
+//   itemBuilder: (context, index) {
+//     DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
+//     var doc = snapshot.data.docs;
+//     final messages = snapshot.data.docs.reversed;
+//     List<MessageBubble> messagesWidgets = [];
+//     for (var message in messages) {
+//       final messageText = documentSnapshot.get('sender');
+//       final messageSender = documentSnapshot.get('text');
+//       // final currentUser = loggedInUser.isAnonymous;
+//       // if (currentUser == messageSender) {
+//       //   //the message from the loggrd in user
+//       // }
+
+//       final messageBubble = MessageBubble(
+//         text: messageText,
+//         sender: messageSender,
+//         // isMe: currentUser == true,
+//         isMe: true,
+//       );
+//       messagesWidgets.add(messageBubble);
+//     }
+//     return Expanded(
+//       child: ListView(
+//         reverse: true,
+//         padding: EdgeInsets.symmetric(
+//           horizontal: 10,
+//           vertical: 20,
+//         ),
+//         children: messagesWidgets,
+//       ),
+//     );
+//     // return Center(
+//     //   child: MessageBubble(
+//     //     sender: documentSnapshot.get('sender'),
+//     //     isMe: true,
+//     //     text: documentSnapshot.get('text'),
+
+//     //     // child: Text(
+//     //     //   documentSnapshot.get('text'),
+//     //     // ),
+//     //   ),
+//     // );
+//   },
+// );
+
+// return ListView.builder(
+//   //   itemCount: snapshot.data.docs.length,
+//   //   itemBuilder: (context, index) {
+//   //     DocumentSnapshot documentSnapshot = snapshot.data.docs[index];
+//   //   },
+//   // );
+//   //     },
+//   //   ),
+//   // );
+
+
+
+
+ // void getMessage() async {
+  //   final messages = await _fireStore.collection('massage').get();
+  //   for (var massage in messages.docs) {
+  //     print(massage);
+  //   }
+  // }
+  // void messageStream() async {
+  //   await for (var snapShort in _fireStore
+  //       .collection('User')
+  //       .doc(widget.name)
+  //       .collection('messages')
+  //       .snapshots()) {
+  //     // for (var message in snapShort.docs) {
+  //     //   print(message.data);
+  //     // }
+  //   }
+  // }
